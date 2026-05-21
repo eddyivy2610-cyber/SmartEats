@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Table QR Codes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fff;
+            color: #000;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            page-break-inside: avoid;
+        }
+        
+        .card h2 {
+            margin: 0 0 5px 0;
+            font-size: 24px;
+        }
+        
+        .card p {
+            margin: 0 0 20px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .card img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .print-btn {
+            display: block;
+            margin: 20px auto 40px auto;
+            padding: 15px 30px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            .card {
+                border: 1px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print QR Codes</button>
+
+    <div class="grid">
+        <!-- Table 1 -->
+        <div class="card">
+            <h2>Table 1</h2>
+            <p>Scan to view menu & order</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://smart-eats-six.vercel.app/smarteats?table=1" alt="Table 1 QR">
+        </div>
+
+        <!-- Table 2 -->
+        <div class="card">
+            <h2>Table 2</h2>
+            <p>Scan to view menu & order</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://smart-eats-six.vercel.app/smarteats?table=2" alt="Table 2 QR">
+        </div>
+
+        <!-- Table 3 -->
+        <div class="card">
+            <h2>Table 3</h2>
+            <p>Scan to view menu & order</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://smart-eats-six.vercel.app/smarteats?table=3" alt="Table 3 QR">
+        </div>
+
+        <!-- Table 4 -->
+        <div class="card">
+            <h2>Table 4</h2>
+            <p>Scan to view menu & order</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://smart-eats-six.vercel.app/smarteats?table=4" alt="Table 4 QR">
+        </div>
+
+        <!-- Table 5 -->
+        <div class="card">
+            <h2>Table 5</h2>
+            <p>Scan to view menu & order</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://smart-eats-six.vercel.app/smarteats?table=5" alt="Table 5 QR">
+        </div>
+    </div>
+
+</body>
+</html>

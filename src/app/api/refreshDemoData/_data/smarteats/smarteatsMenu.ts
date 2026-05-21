@@ -13,6 +13,7 @@ export const menus = [
 		category: "Rice Dishes",
 		veg: "non-veg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	},
 	{
@@ -24,6 +25,7 @@ export const menus = [
 		category: "Soups & Swallows",
 		veg: "non-veg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	},
 	{
@@ -35,6 +37,7 @@ export const menus = [
 		category: "Grilled",
 		veg: "non-veg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	},
 	{
@@ -46,6 +49,7 @@ export const menus = [
 		category: "Rice Dishes",
 		veg: "non-veg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	},
 	{
@@ -57,6 +61,7 @@ export const menus = [
 		category: "Soups & Swallows",
 		veg: "non-veg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	},
 	{
@@ -68,6 +73,7 @@ export const menus = [
 		category: "Snacks",
 		veg: "contains-egg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	},
 	{
@@ -79,6 +85,7 @@ export const menus = [
 		category: "Drinks",
 		veg: "veg",
 		restaurantID: "smarteats",
+		hidden: false,
 		taxPercent: 7.5,
 	}
 ];
