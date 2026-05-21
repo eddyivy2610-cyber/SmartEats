@@ -7,7 +7,7 @@ import { Button, Textfield } from "xtreme-ui";
 
 import "./userLogin.scss";
 
-const mobileNumberPattern = /^(\+234[-\s]?)?[789][01]?\d{8}$/;
+const mobileNumberPattern = /^(\+234[-\s]?)?0?[789]\d{9}$/;
 const UserLogin = ({ setOpen }: UserLoginProps) => {
 	const pathname = usePathname();
 	const params = useSearchParams();
