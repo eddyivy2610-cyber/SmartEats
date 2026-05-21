@@ -100,14 +100,14 @@ const ScannerClient = () => {
 			if (url) {
 				try {
 					const urlObj = new URL(url);
-					const isOrderWorder = urlObj.hostname.includes("orderworder");
+					const isCorrectDomain = urlObj.hostname === window.location.hostname;
 					const hasTable = urlObj.searchParams.has("table");
 
-					if (isOrderWorder && hasTable) {
+					if (isCorrectDomain && hasTable) {
 						setIsScanning(true);
 						window.location.replace(urlObj.pathname + urlObj.search + urlObj.hash);
 					} else {
-						toast.error("Not an OrderWorder QR");
+						toast.error("Invalid Restaurant QR Code");
 					}
 				} catch {
 					toast.error("Invalid QR Code");
