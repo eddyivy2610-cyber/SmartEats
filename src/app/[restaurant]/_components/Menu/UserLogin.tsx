@@ -7,7 +7,7 @@ import { Button, Textfield } from "xtreme-ui";
 
 import "./userLogin.scss";
 
-const mobileNumberPattern = /^(\+91[-\s]?)?[6-9]\d{9}$/;
+const mobileNumberPattern = /^(\+234[-\s]?)?[789][01]?\d{8}$/;
 const UserLogin = ({ setOpen }: UserLoginProps) => {
 	const pathname = usePathname();
 	const params = useSearchParams();
@@ -15,7 +15,7 @@ const UserLogin = ({ setOpen }: UserLoginProps) => {
 	const [buttonLabel, setButtonLabel] = useState("Next");
 	const [busy, setBusy] = useState(false);
 
-	const [dialCode] = useState("91");
+	const [dialCode] = useState("234");
 	const [phone, setPhone] = useState("");
 
 	const [fname, setFName] = useState("");

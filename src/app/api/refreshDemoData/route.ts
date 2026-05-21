@@ -8,6 +8,7 @@ import { CatchNextResponse } from "#utils/helper/common";
 
 import empire from "./_data/empire/empire";
 import starbucks from "./_data/starbucks/starbucks";
+import smarteats from "./_data/smarteats/smarteats";
 
 const deleteData = async (ids: string[]) => {
 	const start = performance.now();
@@ -57,14 +58,15 @@ export async function GET() {
 	await connectDB();
 	try {
 		const start = performance.now();
-		const deleteResult = await deleteData(["empire", "starbucks"]);
-		const [empireResult, starbucksResult] = await Promise.all([createData(empire), createData(starbucks)]);
+		const deleteResult = await deleteData(["empire", "starbucks", "smarteats"]);
+		const [empireResult, starbucksResult, smarteatsResult] = await Promise.all([createData(empire), createData(starbucks), createData(smarteats)]);
 
 		const res = {
 			totalProcessTime: (performance.now() - start) / 1000,
 			delete: deleteResult,
 			empire: empireResult,
 			starbucks: starbucksResult,
+			smarteats: smarteatsResult,
 		};
 		return new Response(JSON.stringify(res, null, 4));
 	} catch (err) {

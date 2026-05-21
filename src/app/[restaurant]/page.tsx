@@ -27,10 +27,18 @@ export async function generateMetadata({ params }: IRestaurantProps): Promise<Me
 	const description =
 		profile?.description ?? `Order food online from ${name}. Browse the menu, customize your order, and enjoy contactless dining powered by ${SITE_NAME}.`;
 
+	const images = [];
+	if (profile?.cover) {
+		images.push({ url: profile.cover, alt: name });
+	} else if (profile?.avatar) {
+		images.push({ url: profile.avatar, alt: name });
+	}
+
 	return buildMetadata({
 		title: `${name} — Order Online`,
 		description,
 		path: `/${restaurant}`,
+		...(images.length > 0 ? { images } : {}),
 	});
 }
 

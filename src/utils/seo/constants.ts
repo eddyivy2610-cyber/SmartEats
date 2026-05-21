@@ -1,6 +1,6 @@
-export const SITE_NAME = "OrderWorder";
+export const SITE_NAME = "SmartEats";
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://orderworder.ritik.me";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const SITE_DESCRIPTION =
 	"Contactless restaurant ordering powered by AI. Scan a QR code, browse the menu, chat with an AI assistant, and place your order — no app download required.";
@@ -22,7 +22,7 @@ export const SITE_KEYWORDS = [
 	"food ordering platform",
 	"QR code ordering",
 	"restaurant technology",
-	"OrderWorder",
+	"SmartEats",
 ] as const;
 
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 } as const;

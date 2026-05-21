@@ -1,11 +1,20 @@
-import Lightings from "./Lightings";
 import "./footerSection.scss";
 
 const FooterSection = () => {
 	return (
 		<section className="footerSection" id="homepage-footer">
-			<p>© {new Date().getFullYear()} OrderWorder, Inc. All rights reserved.</p>
-			<Lightings />
+			<div className="footerContent">
+				<div className="logo">
+					SmartEats
+				</div>
+				<div className="links">
+					<p>Home</p>
+					<p>About Us</p>
+					<p>Product</p>
+					<p>Quality</p>
+				</div>
+			</div>
+			<p className="copyright">© {new Date().getFullYear()} SmartEats, Inc. All rights reserved.</p>
 		</section>
 	);
 };

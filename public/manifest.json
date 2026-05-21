@@ -1,0 +1,13 @@
+{
+	"name": "SmartEats",
+	"short_name": "SmartEats",
+	"description": "Contactless restaurant ordering powered by AI. Scan a QR code, browse the menu, chat with an AI assistant, and place your order — no app download required.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0f0f0f",
+	"theme_color": "#e46b36",
+	"icons": [
+		{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+		{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+	]
+}

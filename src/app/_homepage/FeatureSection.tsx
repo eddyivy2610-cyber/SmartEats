@@ -1,59 +1,78 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import { Lottie } from "xtreme-ui";
-
-import { getAnimSrc } from "#utils/constants/common";
-
 import "./featureSection.scss";
 
-const getHSL = (hue: number, light: number) => `hsl(${hue}, 70%, ${light}%)`;
+import type { ReactNode } from "react";
 
-const FeatureList = ({ items }: { items: string[] }) => {
-	const [hues, setHues] = useState<number[]>([]);
+const IconCost = () => (
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+		<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+	</svg>
+);
 
-	useEffect(() => {
-		const baseHues = Array(items.length)
-			.fill(0)
-			.map((_, i) => i * (360 / items.length));
-		const shuffled = [...baseHues].sort(() => Math.random() - 0.5);
-		setHues(shuffled);
-	}, [items]);
+const IconLink = () => (
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+		<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+		<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+	</svg>
+);
 
-	if (hues.length === 0) return null;
+const IconHistory = () => (
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+		<circle cx="12" cy="12" r="10"></circle>
+		<polyline points="12 6 12 12 16 14"></polyline>
+	</svg>
+);
 
-	return items.map((item, i) => (
-		<div
-			className="featureListItem"
-			key={i}
-			style={{
-				["--lightFeatureColor" as string]: getHSL(hues[i], 80),
-				["--darkFeatureColor" as string]: getHSL(hues[i], 40),
-			}}>
-			<span className="featureLetter">{item.charAt(0)}</span>
-			<p>{item}</p>
+const IconBriefcase = () => (
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+		<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+		<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+	</svg>
+);
+
+const IconUtensils = () => (
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+		<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+		<path d="M7 2v20"></path>
+		<path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+	</svg>
+);
+
+const IconCheck = () => (
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+		<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+		<polyline points="22 4 12 14.01 9 11.01"></polyline>
+	</svg>
+);
+
+const features = [
+	{ text: "Bring down your operating and logistics cost", icon: <IconCost /> },
+	{ text: "Eliminate any third parties between your customer and kitchen", icon: <IconLink /> },
+	{ text: "Track history of all your customer orders", icon: <IconHistory /> },
+	{ text: "Time to get a professional edge", icon: <IconBriefcase /> },
+	{ text: "Enhance the dining experience for your own customers", icon: <IconUtensils /> },
+	{ text: "Remove any scope of human error in your restaurant management", icon: <IconCheck /> },
+];
+
+const FeatureList = ({ items }: { items: { text: string; icon: ReactNode }[] }) => {
+	return (
+		<div className="featuresGrid">
+			{items.map((item, i) => (
+				<div className="featureListItem" key={i}>
+					<div className="featureLetter">{item.icon}</div>
+					<p>{item.text}</p>
+				</div>
+			))}
 		</div>
-	));
+	);
 };
 
 const FeatureSection = () => (
 	<section className="featureSection" id="homepage-features">
 		<div className="featuresContent">
-			<h2>Features</h2>
-			<FeatureList
-				items={[
-					"Bring down your operating and logistics cost",
-					"Eliminate any third parties between your customer and kitchen",
-					"Track history of all your customer orders",
-					"Time to get a professional edge",
-					"Enhance the dining experience for your own customers",
-					"Remove any scope of human error in your restaurant management",
-				]}
-			/>
-		</div>
-		<div className="featuresAnim">
-			<Lottie className="whyUsAnim" src={getAnimSrc("FoodMeal")} speed={0.5} />
+			<h2><span className="highlight">Why</span> SmartEats?</h2>
+			<FeatureList items={features} />
 		</div>
 	</section>
 );
