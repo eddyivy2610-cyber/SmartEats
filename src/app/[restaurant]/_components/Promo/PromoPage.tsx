@@ -14,7 +14,9 @@ export default function PromoPage() {
 			) : (
 				<>
 					{/* Using a Coming Soon animation from LottieFiles */}
-					<Lottie style={{ width: 300, maxWidth: "100%", opacity: 0.8 }} src="https://assets5.lottiefiles.com/packages/lf20_xlmz9xwm.json" />
+					<div style={{ width: 300, maxWidth: "100%", opacity: 0.8 }}>
+						<Lottie src="https://assets5.lottiefiles.com/packages/lf20_xlmz9xwm.json" />
+					</div>
 					<h2 style={{ marginTop: "1.5rem", fontSize: "1.5rem", fontWeight: 600 }}>Coming Soon!</h2>
 					<p style={{ marginTop: "0.5rem", color: "var(--colorContentSecondary, #666)" }}>Check back later for exciting offers and discounts!</p>
 				</>
