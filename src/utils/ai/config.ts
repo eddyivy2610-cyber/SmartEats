@@ -14,7 +14,7 @@ const configs = [
 	{
 		platform: "google",
 		url: "https://generativelanguage.googleapis.com/v1beta/openai",
-		model: "gemini-2.5-pro",
+		model: "gemini-1.5-pro",
 	},
 	{
 		platform: "siliconflow",
