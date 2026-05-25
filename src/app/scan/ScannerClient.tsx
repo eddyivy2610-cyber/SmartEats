@@ -206,6 +206,12 @@ const ScannerClient = () => {
 					</div>
 				)}
 			</div>
+
+			<div style={{ marginTop: "1.5rem", textAlign: "center", zIndex: 10, position: "relative" }}>
+				<a href="/bytebites?table=1" style={{ color: "var(--theme-color, #ff5722)", textDecoration: "underline", fontSize: "0.9rem", fontWeight: 500 }}>
+					Bypass Scan for Testing (PC)
+				</a>
+			</div>
 		</div>
 	);
 };

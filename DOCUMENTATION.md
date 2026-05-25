@@ -1,7 +1,7 @@
-# OrderWorder (SmartEats) - Full Project Documentation
+# SmartEats - Full Project Documentation
 
 ## 1. Executive Summary
-OrderWorder is a modern, full-stack, contactless restaurant ordering platform. It enables restaurants to offer a seamless dine-in experience where customers scan a QR code at their table to view a digital menu, place orders, and chat with an AI waitstaff for personalized recommendations. The system is multi-tenant, meaning it can support multiple restaurants (like SmartEats, Starbucks, etc.) from a single codebase and database.
+SmartEats is a modern, full-stack, contactless restaurant ordering platform. It enables restaurants to offer a seamless dine-in experience where customers scan a QR code at their table to view a digital menu, place orders, and chat with an AI waitstaff for personalized recommendations. The system is multi-tenant, meaning it can support multiple restaurants (like SmartEats, Starbucks, etc.) from a single codebase and database.
 
 ## 2. Core Features
 - **QR Code Table Scanning:** Customers scan a unique QR code placed on their table to instantly access the restaurant's menu without needing to download an app.
