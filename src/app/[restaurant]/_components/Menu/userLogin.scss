@@ -58,6 +58,18 @@
 					}
 				}
 			}
+			/* Fix padding for wider country code */
+			&.xtrTextfield {
+				.input {
+					padding-left: 84px !important;
+				}
+				.placeholder {
+					translate: 78px 0 !important;
+				}
+				&.hasValue .placeholder, &:focus-within .placeholder, &.active .placeholder {
+					translate: 42px -9px !important;
+				}
+			}
 		}
 
 		.otpContainer {
