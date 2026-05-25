@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 import UnderConstruction from "#components/layout/UnderConstruction";
 
+import PromoPage from "./Promo/PromoPage";
 import OrderPage from "./Menu/OrderPage";
 
 export default function PageContainer() {
@@ -12,7 +13,7 @@ export default function PageContainer() {
 
 	return (
 		<div className="pageContainer">
-			{tab === "explore" && <UnderConstruction />}
+			{tab === "promo" && <PromoPage />}
 			{tab === "menu" && <OrderPage />}
 			{tab === "reviews" && <UnderConstruction />}
 			{tab === "contact" && <UnderConstruction />}

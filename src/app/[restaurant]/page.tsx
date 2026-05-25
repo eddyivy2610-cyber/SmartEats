@@ -13,7 +13,7 @@ import PageContainer from "./_components/PageContainer";
 import "./restaurant.scss";
 
 const navItems = [
-	{ label: "explore", value: "explore", icon: "f015" },
+	{ label: "promo", value: "promo", icon: "f02b" },
 	{ label: "menu", value: "menu", icon: "e3e3" },
 	{ label: "reviews", value: "reviews", icon: "f4ad" },
 	{ label: "contact", value: "contact", icon: "f8d3" },
