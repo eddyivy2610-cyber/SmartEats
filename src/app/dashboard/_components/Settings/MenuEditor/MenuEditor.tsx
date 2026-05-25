@@ -7,6 +7,7 @@ import { useAdmin } from "#components/context/useContext";
 import type { TMenu } from "#utils/database/models/menu";
 
 import MenuEditorItem from "./MenuEditorItem";
+import MenuEditorModal from "./MenuEditorModal";
 import "./menuEditor.scss";
 
 const MenuEditor = () => {
@@ -88,7 +89,15 @@ const MenuEditor = () => {
 					))}
 				</div>
 			</div>
-			<Button className={`menuEditorAdd ${modalState ? "active" : ""}`} onClick={() => setModalState("newState")} icon="2b" iconType="solid" />
+			<Button className={`menuEditorAdd ${modalState ? "active" : ""}`} onClick={() => { setEditItem(undefined); setModalState("newState"); }} icon="2b" iconType="solid" />
+			
+			<MenuEditorModal 
+				open={!!modalState} 
+				setOpen={(open) => setModalState(open ? "newState" : "")} 
+				editItem={_editItem} 
+				categories={profile?.categories || []} 
+				onSuccess={() => profileMutate()} 
+			/>
 		</div>
 	);
 };
