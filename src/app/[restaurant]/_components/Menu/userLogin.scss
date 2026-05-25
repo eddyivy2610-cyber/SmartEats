@@ -45,6 +45,21 @@
 			transition: all var(--userLoginDuration) ease-out;
 		}
 
+		> .phone {
+			.dialCode {
+				span {
+					background-image: url("https://flagcdn.com/ng.svg") !important;
+				}
+				p {
+					font-size: 0;
+					&::after {
+						content: "+234";
+						font-size: 14px;
+					}
+				}
+			}
+		}
+
 		.otpContainer {
 			position: absolute;
 			width: 100%;
