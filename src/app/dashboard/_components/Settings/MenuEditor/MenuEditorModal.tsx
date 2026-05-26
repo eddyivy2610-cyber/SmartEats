@@ -1,6 +1,6 @@
 import { type ChangeEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Button, Dropdown, Textfield, Switch } from "xtreme-ui";
+import { Button, Textfield } from "xtreme-ui";
 
 import SideSheet from "#components/base/SideSheet";
 import type { TMenu } from "#utils/database/models/menu";
@@ -131,26 +131,32 @@ const MenuEditorModal = ({ open, setOpen, editItem, categories, onSuccess }: Men
 					/>
 				</div>
 
-				<Dropdown
-					label="Category"
-					options={categoryOptions}
-					value={formData.category}
-					onChange={(val: string) => handleChange("category", val)}
-				/>
+				<div className="selectWrap">
+					<label>Category</label>
+					<select className="nativeSelect" value={formData.category} onChange={(e: ChangeEvent<HTMLSelectElement>) => handleChange("category", e.target.value)}>
+						{categoryOptions.map((opt) => (
+							<option key={opt.value} value={opt.value}>{opt.label}</option>
+						))}
+					</select>
+				</div>
 
 				<div className="inputRow">
-					<Dropdown
-						label="Dietary"
-						options={VEG_OPTIONS}
-						value={formData.veg}
-						onChange={(val: string) => handleChange("veg", val)}
-					/>
-					<Dropdown
-						label="Food Type (Optional)"
-						options={FOOD_TYPE_OPTIONS}
-						value={formData.foodType || ""}
-						onChange={(val: string) => handleChange("foodType", val || undefined)}
-					/>
+					<div className="selectWrap">
+						<label>Dietary</label>
+						<select className="nativeSelect" value={formData.veg} onChange={(e: ChangeEvent<HTMLSelectElement>) => handleChange("veg", e.target.value)}>
+							{VEG_OPTIONS.map((opt) => (
+								<option key={opt.value} value={opt.value}>{opt.label}</option>
+							))}
+						</select>
+					</div>
+					<div className="selectWrap">
+						<label>Food Type (Optional)</label>
+						<select className="nativeSelect" value={formData.foodType || ""} onChange={(e: ChangeEvent<HTMLSelectElement>) => handleChange("foodType", e.target.value || undefined)}>
+							{FOOD_TYPE_OPTIONS.map((opt) => (
+								<option key={opt.value} value={opt.value}>{opt.label}</option>
+							))}
+						</select>
+					</div>
 				</div>
 
 				<Textfield
@@ -176,8 +182,14 @@ const MenuEditorModal = ({ open, setOpen, editItem, categories, onSuccess }: Men
 				<div className="toggleRow">
 					<label>Visibility</label>
 					<div className="toggleWrap">
-						<span className="toggleLabel">{formData.hidden ? "Hidden" : "Visible"}</span>
-						<Switch active={!formData.hidden} onChange={() => handleChange("hidden", !formData.hidden)} />
+						<Button
+							icon={formData.hidden ? "f070" : "f06e"}
+							iconType="solid"
+							size="mini"
+							type={formData.hidden ? "secondary" : "primary"}
+							label={formData.hidden ? "Hidden" : "Visible"}
+							onClick={() => handleChange("hidden", !formData.hidden)}
+						/>
 					</div>
 				</div>
 

@@ -28,15 +28,15 @@ const ItemCard = (props: TItemCardProps) => {
 						<p className="title">{item.name}</p>
 						<div className="footer">
 							<div className="price">
-								{!staticCard && <p className="rupee">{getTotalPrice()}</p>}
+								{!staticCard && <p className="naira">{getTotalPrice()}</p>}
 								{staticCard && (
-									<p className="rupee">
+									<p className="naira">
 										{item.price} <span>✕</span> {item.quantity}
 									</p>
 								)}
 							</div>
 							{staticCard ? (
-								<div className="totalAmount rupee">{getTotalPrice()}</div>
+								<div className="totalAmount naira">{getTotalPrice()}</div>
 							) : (
 								<QuantityButton
 									className="addToCart"

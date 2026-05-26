@@ -79,7 +79,7 @@ const MenuCard = (props: TMenuCardProps) => {
 						</div>
 						{!item.image && <div className="description">{item.description}</div>}
 						<div className="footer">
-							{!item.image && <div className="priceNoImage rupee">{item.price}</div>}
+							{!item.image && <div className="priceNoImage naira">{item.price}</div>}
 							<QuantityButton
 								className="addToCart"
 								quantity={quantity}
@@ -90,7 +90,7 @@ const MenuCard = (props: TMenuCardProps) => {
 						</div>
 					</div>
 					{item.image && (
-						<div className="price rupee">
+						<div className="price naira">
 							<div className="ribbonTop" />
 							<div className="ribbonBottom" />
 							<span>{item.price}</span>

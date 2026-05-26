@@ -17,6 +17,11 @@ export async function POST(req: Request) {
 
 		const restaurantID = session.username;
 
+		// Sanitize empty strings for optional enums/fields
+		if (data.foodType === "") delete data.foodType;
+		if (data.image === "") delete data.image;
+		if (data.description === "") delete data.description;
+
 		const newMenuItem = new Menus({
 			...data,
 			restaurantID,
@@ -47,7 +52,19 @@ export async function PUT(req: Request) {
 
 		if (!menuItem) throw { status: 404, message: `Menu item with id: ${data._id}, not found or unauthorized` };
 
-		Object.assign(menuItem, data);
+		// Sanitize empty strings for optional enums/fields
+		if (data.foodType === "") {
+			data.foodType = undefined;
+			menuItem.foodType = undefined;
+		}
+		
+		// Remove immutable mongoose fields before updating
+		delete data._id;
+		delete data.createdAt;
+		delete data.updatedAt;
+		delete data.__v;
+
+		menuItem.set(data);
 
 		await menuItem.save();
 

@@ -9,7 +9,7 @@ const Veg = ["veg", "non-veg", "contains-egg"] as const;
 
 const MenuSchema = new mongoose.Schema<TMenu>(
 	{
-		name: { type: String, trim: true, unique: true, required: true, sparse: true, index: { unique: true } },
+		name: { type: String, trim: true, required: true, sparse: true },
 		restaurantID: { type: String, trim: true, lowercase: true, required: true },
 		description: { type: String, trim: true },
 		category: { type: String, trim: true, lowercase: true },
@@ -30,7 +30,9 @@ MenuSchema.pre("save", async function () {
 		if (account) accountCache.set(this.restaurantID, account);
 		else throw new Error(`The associated account with username '${this.restaurantID}'does not exist.`);
 	}
-	if (!account?.profile?.categories?.includes(this.category)) throw new Error("The menu item category does not exist.");
+	if (!account?.profile?.categories?.some((cat) => cat.toLowerCase() === this.category)) {
+		throw new Error("The menu item category does not exist.");
+	}
 });
 MenuSchema.post("save", async function () {
 	await Accounts.updateOne({ username: this.restaurantID }, { $addToSet: { menus: this._id } });
